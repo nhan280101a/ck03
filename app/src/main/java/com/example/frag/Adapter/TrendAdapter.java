@@ -12,16 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
 import com.example.frag.fragment.itemTab1.item;
+import com.example.frag.model.Trend_ItemList;
 
 import java.util.ArrayList;
 
 public class TrendAdapter extends RecyclerView.Adapter<TrendAdapter.TrendRecyclerHolder>{
 
     Context context;
-    ArrayList<item> arrayList;
+    ArrayList<Trend_ItemList> arrayList;
     RecyclerItemClick itemClick;
 
-    public TrendAdapter(Context context, ArrayList<item> arrayList) {
+    public TrendAdapter(Context context, ArrayList<Trend_ItemList> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
         this.itemClick = itemClick;
@@ -36,13 +37,13 @@ public class TrendAdapter extends RecyclerView.Adapter<TrendAdapter.TrendRecycle
 
     @Override
     public void onBindViewHolder(@NonNull TrendAdapter.TrendRecyclerHolder holder, int position) {
-        item it =arrayList.get(position);
+        Trend_ItemList it =arrayList.get(position);
         if(it == null){
             return;
         }
-        holder.imgItem.setImageResource(it.getResourceId());
-        holder.tvTitulo.setText(it.getNametab1());
-        holder.tvDescripcion.setText(it.getInfortab1());
+        holder.imgItem.setImageResource(it.getImgResource());
+        holder.tvTitulo.setText(it.getTitulo());
+        holder.tvDescripcion.setText(it.getDescripcion());
 
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
