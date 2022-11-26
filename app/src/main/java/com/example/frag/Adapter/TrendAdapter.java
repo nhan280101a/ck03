@@ -1,16 +1,19 @@
 package com.example.frag.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
+import com.example.frag.activity.TrendDetail;
 import com.example.frag.fragment.itemTab1.item;
 import com.example.frag.model.Trend_ItemList;
 
@@ -31,7 +34,7 @@ public class TrendAdapter extends RecyclerView.Adapter<TrendAdapter.TrendRecycle
     @NonNull
     @Override
     public TrendRecyclerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_view, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trend_item_list_view, parent, false);
         return new TrendRecyclerHolder(view);
     }
 
@@ -66,7 +69,7 @@ public class TrendAdapter extends RecyclerView.Adapter<TrendAdapter.TrendRecycle
     }
 
 
-    public class TrendRecyclerHolder extends RecyclerView.ViewHolder {
+    public class TrendRecyclerHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView imgItem;
         private TextView tvTitulo;
         private TextView tvDescripcion;
@@ -77,6 +80,19 @@ public class TrendAdapter extends RecyclerView.Adapter<TrendAdapter.TrendRecycle
             imgItem = itemView.findViewById(R.id.imgItem);
             tvTitulo = itemView.findViewById(R.id.tvTitulo);
             tvDescripcion = itemView.findViewById(R.id.tvDescripcion);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int postion = getAdapterPosition();
+            Toast.makeText(context, "postion"+postion, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context , TrendDetail.class);
+            intent.putExtra("image" , arrayList.get(postion).getImgResource());
+            intent.putExtra("title" , arrayList.get(postion).getTitulo());
+            intent.putExtra("des" , arrayList.get(postion).getDescripcion());
+
+            context.startActivity(intent);
         }
     }
 
