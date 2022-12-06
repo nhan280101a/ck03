@@ -11,15 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
 import com.example.frag.fragment.HomeFragment;
+import com.example.frag.model.photo1;
 
 import java.util.List;
 
 public class Photo2Adapter extends  RecyclerView.Adapter<Photo2Adapter.UserViewHolder> {
 
     private HomeFragment mContext;
-    private List<photo2> mListUser;
+    private List<photo1> mListUser;
 
-    public Photo2Adapter(HomeFragment mContext, List<photo2> mListUser) {
+    public Photo2Adapter(HomeFragment mContext, List<photo1> mListUser) {
         this.mContext = mContext;
         this.mListUser = mListUser;
     }
@@ -28,7 +29,7 @@ public class Photo2Adapter extends  RecyclerView.Adapter<Photo2Adapter.UserViewH
         this.mContext = mContext;
     }
 
-    public void setData(List<photo2> list) {
+    public void setData(List<photo1> list) {
         this.mListUser = list;
         notifyDataSetChanged();
     }
@@ -50,25 +51,25 @@ public class Photo2Adapter extends  RecyclerView.Adapter<Photo2Adapter.UserViewH
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        photo2 user = mListUser.get(position);
+        photo1 user = mListUser.get(position);
         if (user == null) {
             return;
         }
         holder.imgResource.setImageResource(user.getResourceId());
-        holder.about.setText(user.getAbout());
+        holder.name.setText(user.getName());
         holder.price.setText(user.getPrice());
     }
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgResource;
-        private TextView about;
+        private TextView name;
         private TextView price;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
 
             imgResource = itemView.findViewById(R.id.img_slider);
-            about = itemView.findViewById(R.id.about);
+            name = itemView.findViewById(R.id.name);
             price = itemView.findViewById(R.id.price);
         }
     }

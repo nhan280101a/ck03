@@ -3,13 +3,15 @@ package com.example.frag.fragment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.hardware.lights.LightState;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.frag.Adapter.TourDetailsAdapter;
-import com.example.frag.Adapter.TourPhoto;
+import com.example.frag.model.TourPhoto;
 import com.example.frag.R;
+import com.example.frag.model.Trend_ItemList;
+import com.example.frag.model.photo1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,31 +21,39 @@ import me.relex.circleindicator.CircleIndicator3;
 public class TourDetails extends AppCompatActivity {
     private ViewPager2 mviewPager2;
     private CircleIndicator3 mcircleIndicator3;
-    private List<TourPhoto> mlistPhoto;
+    private List<photo1> mlistPhoto;
+
+    private ImageView viewPagerdetails;
+    private TextView tvTourName;
+    private TextView tourtrend, tvPrice;
+    private photo1 itemDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_details);
 
-        mviewPager2 = findViewById(R.id.viewPagerdetails);
-        mcircleIndicator3 = findViewById(R.id.cicleIddetails);
+        initViews();
 
-        mlistPhoto = getListPhoto();
-        TourDetailsAdapter adapter = new TourDetailsAdapter(mlistPhoto);
-        mviewPager2.setAdapter(adapter);
+        Bundle bundle = getIntent().getExtras();
+        int image = bundle.getInt("image");
+        String title = bundle.getString("name");
+        String price = bundle.getString("price");
+        String about = bundle.getString("about");
 
-        mcircleIndicator3.setViewPager(mviewPager2);
+        viewPagerdetails.setImageResource(image);
+        tvTourName.setText(title);
+        tvPrice.setText(price);
+        tourtrend.setText(about);
 
     }
 
-    private List<TourPhoto> getListPhoto(){
-        List<TourPhoto> list = new ArrayList<>();
-        list.add(new TourPhoto(R.drawable.a1));
-        list.add(new TourPhoto(R.drawable.a2));
-        list.add(new TourPhoto(R.drawable.a3));
-        list.add(new TourPhoto(R.drawable.a4));
-        list.add(new TourPhoto(R.drawable.a5));
-        return list;
+    private void initViews() {
+        viewPagerdetails = findViewById(R.id.viewPagerdetails);
+        tvTourName = findViewById(R.id.tvTourName);
+        tvPrice = findViewById(R.id.tvPrice);
+        tourtrend = findViewById(R.id.tourtrend);
     }
+
+
 }

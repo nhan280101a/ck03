@@ -7,8 +7,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.example.frag.Adapter.ExploreDetailsAdapter;
-import com.example.frag.Adapter.TourDetailsAdapter;
-import com.example.frag.Adapter.TourPhoto;
+import com.example.frag.model.TourPhoto;
 import com.example.frag.R;
 
 import java.util.ArrayList;

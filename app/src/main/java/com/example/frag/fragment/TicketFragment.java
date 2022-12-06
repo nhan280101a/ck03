@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.frag.Adapter.AdapterMyTour;
 import com.example.frag.R;
-import com.example.frag.fragment.itemTab1.item;
-import com.google.android.material.tabs.TabLayout;
+import com.example.frag.model.item;
 
 import java.util.ArrayList;
 

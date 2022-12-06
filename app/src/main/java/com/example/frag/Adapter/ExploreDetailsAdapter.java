@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
+import com.example.frag.model.TourPhoto;
 
 import java.util.List;
 

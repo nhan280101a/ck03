@@ -18,7 +18,7 @@ public class TrendDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trend_detail2);
+        setContentView(R.layout.activity_trend_detail);
 
         initViews();
 

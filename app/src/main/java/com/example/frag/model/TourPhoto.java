@@ -1,4 +1,4 @@
-package com.example.frag.Adapter;
+package com.example.frag.model;
 
 public class TourPhoto {
     private int resourceID;

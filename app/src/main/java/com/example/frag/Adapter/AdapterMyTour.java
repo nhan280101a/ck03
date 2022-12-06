@@ -11,11 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
-import com.example.frag.fragment.itemTab1.item;
-import com.example.frag.fragment.itemTab1.itemAdapter;
+import com.example.frag.model.item;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdapterMyTour extends RecyclerView.Adapter<AdapterMyTour.MyTourRecyclerHolder>{
     private Context mContext;

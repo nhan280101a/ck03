@@ -1,4 +1,4 @@
-package com.example.frag.fragment.itemTab1;
+package com.example.frag.model;
 
 public class item {
     private int resourceId;

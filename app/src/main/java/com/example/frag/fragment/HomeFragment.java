@@ -14,15 +14,14 @@ import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.frag.Adapter.TrendAdapter;
 import com.example.frag.R;
 import com.example.frag.fragment.itemTab1.Photo1Adapter;
 import com.example.frag.fragment.itemTab1.Photo2Adapter;
 import com.example.frag.fragment.itemTab1.Photo3Adapter;
 import com.example.frag.fragment.itemTab1.Photo4Adapter;
-import com.example.frag.fragment.itemTab1.photo1;
-import com.example.frag.fragment.itemTab1.photo2;
-import com.example.frag.fragment.itemTab1.photo3;
-import com.example.frag.fragment.itemTab1.photo4;
+import com.example.frag.model.Trend_ItemList;
+import com.example.frag.model.photo1;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -45,6 +44,9 @@ public class HomeFragment extends Fragment {
     private Photo4Adapter photo4Adapter;
     private TabLayout tabLayout;
 
+    private ArrayList<photo1> arrayList;
+    private RecyclerView home1_viewpager1;
+    private Photo1Adapter adapter;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -176,19 +178,28 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initValue();
+
+        home1_viewpager1 = view.findViewById(R.id.home1_viewpager1);
+        home1_viewpager1.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+        home1_viewpager1.hasFixedSize();
+        Photo1Adapter adapter = new Photo1Adapter(getContext(),arrayList);
+        home1_viewpager1.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
         listitem=new ArrayList<>();
-        photo1Adapter = new Photo1Adapter(this,getListPhoto1());
+       // photo1Adapter = new Photo1Adapter(this,getListPhoto1());
         photo2Adapter = new Photo2Adapter(this,getListPhoto2());
         photo3Adapter = new Photo3Adapter(this,getListPhoto3());
         photo4Adapter = new Photo4Adapter(this,getListPhoto4());
 
-        RecyclerView rcv1 = view.findViewById(R.id.home1_viewpager1);
+        /*RecyclerView rcv1 = view.findViewById(R.id.home1_viewpager1);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false);
         rcv1.setLayoutManager(layoutManager);
         photo1Adapter.setData(getListPhoto1());
         rcv1.setAdapter(photo1Adapter);
         SnapHelper startSnapHelper1 = new LinearSnapHelper();
-        startSnapHelper1.attachToRecyclerView(rcv1);
+        startSnapHelper1.attachToRecyclerView(rcv1);*/
 
         RecyclerView rcv2 = view.findViewById(R.id.home1_viewpager2);
         RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false);
@@ -213,47 +224,88 @@ public class HomeFragment extends Fragment {
 
 
     }
+
+    private void initValue() {
+        arrayList = new ArrayList<>();
+        arrayList.add(new photo1(R.drawable.a1,"Tour du lịch Nam Cát Tiên 2N1D","Phương tiện: Xe 29 chỗ đời mới, băng đôi, ghế bật, máy lạnh, đạt tiêu chuẩn du lịch.\n" +
+                "Lưu trú: Tiêu chuẩn 2 người/phòng: máy lạnh, tivi, toilet riêng, wifi,...\n" +
+                "Ăn uống:\n" +
+                "02 buổi Ăn sáng.\n" +
+                "02 buổi ăn chính ( Ăn trưa, tối ): 150.000đ/khách thực đơn 5-6 món thay đổi theo từng bữa ăn.\n" +
+                "01 bữa tiệc nướng BBQ menu đính kèm.\n" +
+                "Hướng dẫn viên: Đoàn có hướng dẫn viên thuyết minh nhiệt tình và phục vụ ăn, nghỉ, tham quan cho quý khách. Hoạt náo viên tổ chức các trò chơi vận động tập thể, sinh hoạt, ca hát.\n" +
+                "Tổ chức chương trình teambuilding cho đoàn.\n" +
+                "Bảo hiểm: Khách được bảo hiểm du lịch trọn gói, mức bồi thường tối đa 30.000.000đ/vụ. Thuốc y tế thông thường.\n" +
+                "Quà tặng: Mỗi vị khách trên đường đi được phục vụ 1 khăn lạnh, 1 chai nước tinh khiết/ ngày / người, nón quà lưu niệm công ty.\n" +
+                "Tham quan: Giá tour bao gồm phí vào cổng tại các điểm tham quan nêu trên chương trình, đêm hội lửa trại:\n" +
+                "Vé vào vườn quốc gia\n" +
+                "Xe đạp\n" +
+                "Phí tham quan Bàu Sấu\n" +
+                "Lửa trại: Đống củi, MC hoạt náo dẫn chương trình. Ngoài ra tặng thêm quý khách hàng 10 trái bắp và 10 củ khoai.","1.850.000 VND"));
+        arrayList.add(new photo1(R.drawable.a2,"Tour du lịch Đảo Ó Đồng Trường","Chi phí vận chuyển: Xe du lịch đời mới đưa đón tham quan suốt tuyến.\n" +
+                "Khách sạn 3 sao theo tiêu chuẩn: Phòng 2 – 3-4/người.\n" +
+                "02 bữa sáng\n" +
+                "04 bữa chính đặc sản theo chương trình ( thực đơn đính kèm )\n" +
+                "Hướng dẫn viên chuyên nghiệp, nhiệt tình, chu đáo phục vụ suốt tuyến.\n" +
+                "Phí tham quan theo chương trình.\n" +
+                "Quà tặng: Nón du lịch Khăn lạnh, Nước suối 1 chai / 1 ngày / 1 người.\n" +
+                "Bảo hiểm du lịch suốt chuyến tham quan 30.000.000 đồng/vụ .","1.400.000 VND"));
+        arrayList.add(new photo1(R.drawable.a3,"Du lịch Đà Lạt","Vận chuyển: Xe du lịch 29-45 chỗ đời mới phục vụ suốt tuyến.\n" +
+                "Vé tham quan: Vé các điểm tham quan theo lịch trình\n" +
+                "Lưu trú: Khách sạn 2-3 sao tiêu chuẩn 2 - 4 – 6 khách/ 1 phòng\n" +
+                "Ăn uống\n" +
+                "Ăn sáng: 02 bữa tô ly và 02 bữa Buffet sáng.\n" +
+                "Ăn chính: 05 bữa thực đơn 110.000vnđ/pax\n" +
+                "Bảo hiểm 30.000.000 đ/người/trường hợp (chỉ áp dụng cho những khách hoàn tất thủ tục đăng ký tour trước khởi hành 1 ngày, không bao gồm các ngày nghỉ cuối tuần và các ngày nghỉ lễ, Tết)\n" +
+                "Hướng dẫn viên HDV nhiệt tình, kinh nghiệm, vui vẻ phục vụ chu đáo\n" +
+                "Nước suối, khăn lạnh,nón Nước suối: 1 chai 500ml/ngày/khách Khăn lạnh: 1 cái/ngày/khách\n" +
+                "Nón du lịch: 1 nón/khách","1.750.000 VND"));
+        arrayList.add(new photo1(R.drawable.a4,"Nha Trang","item1","2.400.000"));
+        arrayList.add(new photo1(R.drawable.a5,"Sa Pa","item1","3.000.000"));
+        arrayList.add(new photo1(R.drawable.a6,"Vung Tau","item1","1.000.000"));
+    }
+
     private List<photo1> getListPhoto1 () {
         List<photo1> list = new ArrayList<>();
-        list.add(new photo1(R.drawable.a1,"item1","5.000.000"));
-        list.add(new photo1(R.drawable.a2,"item2","5.000.000"));
-        list.add(new photo1(R.drawable.a3,"item3","5.000.000"));
-        list.add(new photo1(R.drawable.a4,"item4","5.000.000"));
-        list.add(new photo1(R.drawable.a5,"item5","5.000.000"));
-        list.add(new photo1(R.drawable.a6,"item6","5.000.000"));
+        list.add(new photo1(R.drawable.a1,"Ha Noi","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a2,"Khanh Hoa","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a3,"Sai Gon","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a4,"Nha Trang","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a5,"Sa Pa","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a6,"Vung Tau","item1","5.000.000"));
         return list;
     }
 
-    private List<photo2> getListPhoto2 () {
-        List<photo2> list = new ArrayList<>();
-        list.add(new photo2(R.drawable.a1,"item1","5.000.000"));
-        list.add(new photo2(R.drawable.a2,"item2","5.000.000"));
-        list.add(new photo2(R.drawable.a3,"item3","5.000.000"));
-        list.add(new photo2(R.drawable.a4,"item4","5.000.000"));
-        list.add(new photo2(R.drawable.a5,"item5","5.000.000"));
-        list.add(new photo2(R.drawable.a6,"item6","5.000.000"));
+    private List<photo1> getListPhoto2 () {
+        List<photo1> list = new ArrayList<>();
+        list.add(new photo1(R.drawable.a1,"Ha Noi","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a2,"Khanh Hoa","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a3,"Sai Gon","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a4,"Nha Trang","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a5,"Sa Pa","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a6,"Vung Tau","item1","5.000.000"));
         return list;
     }
 
-    private List<photo3> getListPhoto3 () {
-        List<photo3> list = new ArrayList<>();
-        list.add(new photo3(R.drawable.a1,"item1","5.000.000"));
-        list.add(new photo3(R.drawable.a2,"item2","5.000.000"));
-        list.add(new photo3(R.drawable.a3,"item3","5.000.000"));
-        list.add(new photo3(R.drawable.a4,"item4","5.000.000"));
-        list.add(new photo3(R.drawable.a5,"item5","5.000.000"));
-        list.add(new photo3(R.drawable.a6,"item6","5.000.000"));
+    private List<photo1> getListPhoto3 () {
+        List<photo1> list = new ArrayList<>();
+        list.add(new photo1(R.drawable.a1,"Ha Noi","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a2,"Khanh Hoa","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a3,"Sai Gon","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a4,"Nha Trang","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a5,"Sa Pa","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a6,"Vung Tau","item1","5.000.000"));
         return list;
     }
 
-    private List<photo4> getListPhoto4 () {
-        List<photo4> list = new ArrayList<>();
-        list.add(new photo4(R.drawable.a3));
-        list.add(new photo4(R.drawable.a1));
-        list.add(new photo4(R.drawable.a2));
-        list.add(new photo4(R.drawable.a6));
-        list.add(new photo4(R.drawable.a5));
-        list.add(new photo4(R.drawable.a4));
+    private List<photo1> getListPhoto4 () {
+        List<photo1> list = new ArrayList<>();
+        list.add(new photo1(R.drawable.a1,"Ha Noi","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a2,"Khanh Hoa","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a3,"Sai Gon","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a4,"Nha Trang","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a5,"Sa Pa","item1","5.000.000"));
+        list.add(new photo1(R.drawable.a6,"Vung Tau","item1","5.000.000"));
         return list;
     }
 

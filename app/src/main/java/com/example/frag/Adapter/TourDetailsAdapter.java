@@ -1,6 +1,5 @@
 package com.example.frag.Adapter;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
+import com.example.frag.model.TourPhoto;
 
 import java.util.List;
 

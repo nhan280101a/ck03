@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
 import com.example.frag.activity.TrendDetail;
-import com.example.frag.fragment.itemTab1.item;
+import com.example.frag.model.item;
 import com.example.frag.model.Trend_ItemList;
 
 import java.util.ArrayList;

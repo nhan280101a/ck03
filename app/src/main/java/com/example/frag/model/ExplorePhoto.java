@@ -1,4 +1,4 @@
-package com.example.frag.Adapter;
+package com.example.frag.model;
 
 public class ExplorePhoto {
     private int resourceID;

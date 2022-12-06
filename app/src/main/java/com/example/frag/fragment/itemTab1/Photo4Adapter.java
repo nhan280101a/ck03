@@ -10,15 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
 import com.example.frag.fragment.HomeFragment;
+import com.example.frag.model.photo1;
 
 import java.util.List;
 
 public class Photo4Adapter extends  RecyclerView.Adapter<Photo4Adapter.UserViewHolder> {
 
     private HomeFragment mContext;
-    private List<photo4> mListUser;
+    private List<photo1> mListUser;
 
-    public Photo4Adapter(HomeFragment mContext, List<photo4> mListUser) {
+    public Photo4Adapter(HomeFragment mContext, List<photo1> mListUser) {
         this.mContext = mContext;
         this.mListUser = mListUser;
     }
@@ -27,7 +28,7 @@ public class Photo4Adapter extends  RecyclerView.Adapter<Photo4Adapter.UserViewH
         this.mContext = mContext;
     }
 
-    public void setData(List<photo4> list) {
+    public void setData(List<photo1> list) {
         this.mListUser = list;
         notifyDataSetChanged();
     }
@@ -50,7 +51,7 @@ public class Photo4Adapter extends  RecyclerView.Adapter<Photo4Adapter.UserViewH
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        photo4 user = mListUser.get(position);
+        photo1 user = mListUser.get(position);
         if (user == null) {
             return;
         }
