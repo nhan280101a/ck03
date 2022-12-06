@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.frag.Adapter.TrendAdapter;
+import com.example.frag.Adapter.BlogAdapter;
 import com.example.frag.R;
 import com.example.frag.model.Trend_ItemList;
 
@@ -20,10 +20,10 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TrendFragment#newInstance} factory method to
+ * Use the {@link BlogFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TrendFragment extends Fragment {
+public class BlogFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,16 +36,16 @@ public class TrendFragment extends Fragment {
 
     private ArrayList<Trend_ItemList> arrayList;
     private RecyclerView rvLista;
-    private TrendAdapter adapter;
+    private BlogAdapter adapter;
 
-    public TrendFragment() {
+    public BlogFragment() {
         // Required empty public constructor
     }
 
 
     // TODO: Rename and change types and number of parameters
-    public static TrendFragment newInstance(String param1, String param2) {
-        TrendFragment fragment = new TrendFragment();
+    public static BlogFragment newInstance(String param1, String param2) {
+        BlogFragment fragment = new BlogFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,7 +66,7 @@ public class TrendFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trend, container, false);
+        return inflater.inflate(R.layout.fragment_blog, container, false);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class TrendFragment extends Fragment {
         rvLista = view.findViewById(R.id.rvLista);
         rvLista.setLayoutManager(new LinearLayoutManager(getContext()));
         rvLista.hasFixedSize();
-        TrendAdapter adapter = new TrendAdapter(getContext(),arrayList);
+        BlogAdapter adapter = new BlogAdapter(getContext(),arrayList);
         rvLista.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

@@ -3,17 +3,17 @@ package com.example.frag.fragment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.frag.Adapter.TourDetailsAdapter;
-import com.example.frag.model.TourPhoto;
+import com.example.frag.activity.Tour_findtour;
 import com.example.frag.R;
-import com.example.frag.model.Trend_ItemList;
-import com.example.frag.model.photo1;
+import com.example.frag.model.Tour;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator3;
@@ -21,12 +21,18 @@ import me.relex.circleindicator.CircleIndicator3;
 public class TourDetails extends AppCompatActivity {
     private ViewPager2 mviewPager2;
     private CircleIndicator3 mcircleIndicator3;
-    private List<photo1> mlistPhoto;
+    private List<Tour> mlistPhoto;
+
+
 
     private ImageView viewPagerdetails;
     private TextView tvTourName;
+    private TextView placeTour;
+    private TextView timeTour;
+    private TextView placeStart;
     private TextView tourtrend, tvPrice;
-    private photo1 itemDetail;
+    private Button btnTimTour;
+    private Tour itemDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +43,31 @@ public class TourDetails extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         int image = bundle.getInt("image");
-        String title = bundle.getString("name");
+        String name = bundle.getString("name");
+        String time = bundle.getString("timeTour");
+        String place = bundle.getString("placeTour");
+        String startPlace = bundle.getString("placeStart");
         String price = bundle.getString("price");
         String about = bundle.getString("about");
 
+
+
         viewPagerdetails.setImageResource(image);
-        tvTourName.setText(title);
+        tvTourName.setText(name);
+        timeTour.setText(time);
+        placeTour.setText(place);
+        placeStart.setText(startPlace);
         tvPrice.setText(price);
         tourtrend.setText(about);
+
+        btnTimTour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TourDetails.this, Tour_findtour.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -53,6 +76,10 @@ public class TourDetails extends AppCompatActivity {
         tvTourName = findViewById(R.id.tvTourName);
         tvPrice = findViewById(R.id.tvPrice);
         tourtrend = findViewById(R.id.tourtrend);
+        timeTour = findViewById(R.id.timeTour);
+        placeTour = findViewById(R.id.placeTour);
+        placeStart = findViewById(R.id.placeStart);
+        btnTimTour = findViewById(R.id.btnTimTour);
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.frag.Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
 import com.example.frag.model.TourPhoto;
+import com.example.frag.model.Tour;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TourDetailsAdapter extends RecyclerView.Adapter<TourDetailsAdapter.PhotoViewHoder> {
     private List<TourPhoto> mlistPhoto;
+
+    Context context;
+    ArrayList<Tour> arrayList;
 
     public TourDetailsAdapter(List<TourPhoto> mlistPhoto) {
         this.mlistPhoto = mlistPhoto;

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.example.frag.R;
 import com.example.frag.model.Trend_ItemList;
 
-public class TrendDetail extends AppCompatActivity {
+public class BlogDetail extends AppCompatActivity {
     private ImageView imgItemDetail;
     private TextView tvTitleDetail;
     private TextView tvDescripcionDetail;

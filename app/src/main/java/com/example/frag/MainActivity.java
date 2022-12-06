@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import com.example.frag.fragment.AccountFragment;
 import com.example.frag.fragment.HomeFragment;
 import com.example.frag.fragment.TicketFragment;
-import com.example.frag.fragment.TrendFragment;
+import com.example.frag.fragment.BlogFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Fragments
     HomeFragment homeFragment;
-    TrendFragment trendFragment;
+    BlogFragment trendFragment;
     TicketFragment ticketFragment;
     AccountFragment accountFragment;
     MenuItem prevMenuItem;
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         homeFragment=new HomeFragment();
-        trendFragment =new TrendFragment();
+        trendFragment =new BlogFragment();
         ticketFragment = new TicketFragment();
         accountFragment=new AccountFragment();
 

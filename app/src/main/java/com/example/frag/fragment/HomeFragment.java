@@ -14,14 +14,13 @@ import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-import com.example.frag.Adapter.TrendAdapter;
 import com.example.frag.R;
-import com.example.frag.fragment.itemTab1.Photo1Adapter;
+import com.example.frag.fragment.itemTab1.BestSaleAdapter;
 import com.example.frag.fragment.itemTab1.Photo2Adapter;
 import com.example.frag.fragment.itemTab1.Photo3Adapter;
 import com.example.frag.fragment.itemTab1.Photo4Adapter;
-import com.example.frag.model.Trend_ItemList;
-import com.example.frag.model.photo1;
+import com.example.frag.fragment.itemTab1.photo2;
+import com.example.frag.model.Tour;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -37,16 +36,16 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     private View mView;
-    private List<photo1> listitem;
-    private Photo1Adapter photo1Adapter;
+    private List<Tour> listitem;
+    private BestSaleAdapter photo1Adapter;
     private Photo2Adapter photo2Adapter;
     private Photo3Adapter photo3Adapter;
     private Photo4Adapter photo4Adapter;
     private TabLayout tabLayout;
 
-    private ArrayList<photo1> arrayList;
+    private ArrayList<Tour> arrayList;
     private RecyclerView home1_viewpager1;
-    private Photo1Adapter adapter;
+    private BestSaleAdapter adapter;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -183,7 +182,7 @@ public class HomeFragment extends Fragment {
         home1_viewpager1 = view.findViewById(R.id.home1_viewpager1);
         home1_viewpager1.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         home1_viewpager1.hasFixedSize();
-        Photo1Adapter adapter = new Photo1Adapter(getContext(),arrayList);
+        BestSaleAdapter adapter = new BestSaleAdapter(getContext(),arrayList);
         home1_viewpager1.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -227,7 +226,7 @@ public class HomeFragment extends Fragment {
 
     private void initValue() {
         arrayList = new ArrayList<>();
-        arrayList.add(new photo1(R.drawable.a1,"Tour du lịch Nam Cát Tiên 2N1D","Phương tiện: Xe 29 chỗ đời mới, băng đôi, ghế bật, máy lạnh, đạt tiêu chuẩn du lịch.\n" +
+        arrayList.add(new Tour(R.drawable.a1,"Tour du lịch Nam Cát Tiên 2N1D","2 ngày 1 đêm","Cát Tiên", "Hồ Chí Minh","Phương tiện: Xe 29 chỗ đời mới, băng đôi, ghế bật, máy lạnh, đạt tiêu chuẩn du lịch.\n" +
                 "Lưu trú: Tiêu chuẩn 2 người/phòng: máy lạnh, tivi, toilet riêng, wifi,...\n" +
                 "Ăn uống:\n" +
                 "02 buổi Ăn sáng.\n" +
@@ -242,7 +241,7 @@ public class HomeFragment extends Fragment {
                 "Xe đạp\n" +
                 "Phí tham quan Bàu Sấu\n" +
                 "Lửa trại: Đống củi, MC hoạt náo dẫn chương trình. Ngoài ra tặng thêm quý khách hàng 10 trái bắp và 10 củ khoai.","1.850.000 VND"));
-        arrayList.add(new photo1(R.drawable.a2,"Tour du lịch Đảo Ó Đồng Trường","Chi phí vận chuyển: Xe du lịch đời mới đưa đón tham quan suốt tuyến.\n" +
+        arrayList.add(new Tour(R.drawable.a2,"Tour du lịch Đảo Ó Đồng Trường","1 ngày","vfv","df","Chi phí vận chuyển: Xe du lịch đời mới đưa đón tham quan suốt tuyến.\n" +
                 "Khách sạn 3 sao theo tiêu chuẩn: Phòng 2 – 3-4/người.\n" +
                 "02 bữa sáng\n" +
                 "04 bữa chính đặc sản theo chương trình ( thực đơn đính kèm )\n" +
@@ -250,7 +249,7 @@ public class HomeFragment extends Fragment {
                 "Phí tham quan theo chương trình.\n" +
                 "Quà tặng: Nón du lịch Khăn lạnh, Nước suối 1 chai / 1 ngày / 1 người.\n" +
                 "Bảo hiểm du lịch suốt chuyến tham quan 30.000.000 đồng/vụ .","1.400.000 VND"));
-        arrayList.add(new photo1(R.drawable.a3,"Du lịch Đà Lạt","Vận chuyển: Xe du lịch 29-45 chỗ đời mới phục vụ suốt tuyến.\n" +
+        arrayList.add(new Tour(R.drawable.a3,"Du lịch Đà Lạt","2 ngày","Đà Lạt","Hồ Chí Minh", "Vận chuyển: Xe du lịch 29-45 chỗ đời mới phục vụ suốt tuyến.\n" +
                 "Vé tham quan: Vé các điểm tham quan theo lịch trình\n" +
                 "Lưu trú: Khách sạn 2-3 sao tiêu chuẩn 2 - 4 – 6 khách/ 1 phòng\n" +
                 "Ăn uống\n" +
@@ -260,52 +259,52 @@ public class HomeFragment extends Fragment {
                 "Hướng dẫn viên HDV nhiệt tình, kinh nghiệm, vui vẻ phục vụ chu đáo\n" +
                 "Nước suối, khăn lạnh,nón Nước suối: 1 chai 500ml/ngày/khách Khăn lạnh: 1 cái/ngày/khách\n" +
                 "Nón du lịch: 1 nón/khách","1.750.000 VND"));
-        arrayList.add(new photo1(R.drawable.a4,"Nha Trang","item1","2.400.000"));
-        arrayList.add(new photo1(R.drawable.a5,"Sa Pa","item1","3.000.000"));
-        arrayList.add(new photo1(R.drawable.a6,"Vung Tau","item1","1.000.000"));
+        arrayList.add(new Tour(R.drawable.a4,"Nha Trang","gdh","dfgdf","fdgd","item1","2.400.000"));
+        arrayList.add(new Tour(R.drawable.a5,"Sa Pa","gdh","dfgdf","fdgd","item1","3.000.000"));
+        arrayList.add(new Tour(R.drawable.a6,"Vung Tau","gdh","dfgdf","fdgd","item1","1.000.000"));
     }
 
-    private List<photo1> getListPhoto1 () {
-        List<photo1> list = new ArrayList<>();
-        list.add(new photo1(R.drawable.a1,"Ha Noi","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a2,"Khanh Hoa","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a3,"Sai Gon","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a4,"Nha Trang","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a5,"Sa Pa","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a6,"Vung Tau","item1","5.000.000"));
+    private List<photo2> getListPhoto1 () {
+        List<photo2> list = new ArrayList<>();
+        list.add(new photo2(R.drawable.a1,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a2,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a3,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a4,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a5,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a6,"item1","5.000.000"));
         return list;
     }
 
-    private List<photo1> getListPhoto2 () {
-        List<photo1> list = new ArrayList<>();
-        list.add(new photo1(R.drawable.a1,"Ha Noi","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a2,"Khanh Hoa","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a3,"Sai Gon","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a4,"Nha Trang","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a5,"Sa Pa","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a6,"Vung Tau","item1","5.000.000"));
+    private List<photo2> getListPhoto2 () {
+        List<photo2> list = new ArrayList<>();
+        list.add(new photo2(R.drawable.a1,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a2,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a3,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a4,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a5,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a6,"item1","5.000.000"));
         return list;
     }
 
-    private List<photo1> getListPhoto3 () {
-        List<photo1> list = new ArrayList<>();
-        list.add(new photo1(R.drawable.a1,"Ha Noi","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a2,"Khanh Hoa","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a3,"Sai Gon","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a4,"Nha Trang","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a5,"Sa Pa","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a6,"Vung Tau","item1","5.000.000"));
+    private List<photo2> getListPhoto3 () {
+        List<photo2> list = new ArrayList<>();
+        list.add(new photo2(R.drawable.a1,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a2,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a3,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a4,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a5,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a6,"item1","5.000.000"));
         return list;
     }
 
-    private List<photo1> getListPhoto4 () {
-        List<photo1> list = new ArrayList<>();
-        list.add(new photo1(R.drawable.a1,"Ha Noi","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a2,"Khanh Hoa","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a3,"Sai Gon","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a4,"Nha Trang","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a5,"Sa Pa","item1","5.000.000"));
-        list.add(new photo1(R.drawable.a6,"Vung Tau","item1","5.000.000"));
+    private List<photo2> getListPhoto4 () {
+        List<photo2> list = new ArrayList<>();
+        list.add(new photo2(R.drawable.a1,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a2,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a3,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a4,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a5,"item1","5.000.000"));
+        list.add(new photo2(R.drawable.a6,"item1","5.000.000"));
         return list;
     }
 

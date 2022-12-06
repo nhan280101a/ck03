@@ -19,7 +19,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new HomeFragment();
             case 1:
-                return new TrendFragment();
+                return new BlogFragment();
             case 2:
                 return new TicketFragment();
             case 3:

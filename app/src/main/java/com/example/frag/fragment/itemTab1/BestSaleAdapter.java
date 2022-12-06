@@ -12,27 +12,22 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.frag.Adapter.TrendAdapter;
 import com.example.frag.R;
-import com.example.frag.activity.TrendDetail;
-import com.example.frag.fragment.HomeFragment;
 import com.example.frag.fragment.TourDetails;
-import com.example.frag.model.Trend_ItemList;
-import com.example.frag.model.photo1;
+import com.example.frag.model.Tour;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class Photo1Adapter extends  RecyclerView.Adapter<Photo1Adapter.UserViewHolder> {
+public class BestSaleAdapter extends  RecyclerView.Adapter<BestSaleAdapter.UserViewHolder> {
 
     Context context;
-    ArrayList<photo1> arrayList;
-    TrendAdapter.RecyclerItemClick itemClick;
+    ArrayList<Tour> arrayList;
 
-    public Photo1Adapter(Context context, ArrayList<photo1> arrayList) {
+
+    public BestSaleAdapter(Context context, ArrayList<Tour> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
-        this.itemClick = itemClick;
+
     }
     @NonNull
     @Override
@@ -48,7 +43,7 @@ public class Photo1Adapter extends  RecyclerView.Adapter<Photo1Adapter.UserViewH
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        photo1 user = arrayList.get(position);
+        Tour user = arrayList.get(position);
         if (user == null) {
             return;
         }
@@ -59,7 +54,7 @@ public class Photo1Adapter extends  RecyclerView.Adapter<Photo1Adapter.UserViewH
 
     public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView imgResource;
-        private TextView name;
+        private TextView name, timeTour, placeTour, placeStart;
         private TextView price;
         private TextView about;
 
@@ -68,6 +63,9 @@ public class Photo1Adapter extends  RecyclerView.Adapter<Photo1Adapter.UserViewH
 
             imgResource = itemView.findViewById(R.id.img_slider);
             name = itemView.findViewById(R.id.name);
+            timeTour = itemView.findViewById(R.id.timeTour);
+            placeTour = itemView.findViewById(R.id.placeTour);
+            placeStart = itemView.findViewById(R.id.placeStart);
             price = itemView.findViewById(R.id.price);
             about = itemView.findViewById(R.id.tourtrend);
             itemView.setOnClickListener(this);
@@ -80,6 +78,9 @@ public class Photo1Adapter extends  RecyclerView.Adapter<Photo1Adapter.UserViewH
             Intent intent = new Intent(context, TourDetails.class);
             intent.putExtra("image", arrayList.get(postion).getResourceId());
             intent.putExtra("name", arrayList.get(postion).getName());
+            intent.putExtra("timeTour", arrayList.get(postion).getTimeTour());
+            intent.putExtra("placeTour", arrayList.get(postion).getPlaceTour());
+            intent.putExtra("placeStart", arrayList.get(postion).getPlaceStart());
             intent.putExtra("price", arrayList.get(postion).getPrice());
             intent.putExtra("about", arrayList.get(postion).getAbout());
 

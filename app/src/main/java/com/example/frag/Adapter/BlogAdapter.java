@@ -13,19 +13,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
-import com.example.frag.activity.TrendDetail;
+import com.example.frag.activity.BlogDetail;
 import com.example.frag.model.item;
 import com.example.frag.model.Trend_ItemList;
 
 import java.util.ArrayList;
 
-public class TrendAdapter extends RecyclerView.Adapter<TrendAdapter.TrendRecyclerHolder>{
+public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.TrendRecyclerHolder>{
 
     Context context;
     ArrayList<Trend_ItemList> arrayList;
     RecyclerItemClick itemClick;
 
-    public TrendAdapter(Context context, ArrayList<Trend_ItemList> arrayList) {
+    public BlogAdapter(Context context, ArrayList<Trend_ItemList> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
         this.itemClick = itemClick;
@@ -39,7 +39,7 @@ public class TrendAdapter extends RecyclerView.Adapter<TrendAdapter.TrendRecycle
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TrendAdapter.TrendRecyclerHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BlogAdapter.TrendRecyclerHolder holder, int position) {
         Trend_ItemList it =arrayList.get(position);
         if(it == null){
             return;
@@ -87,7 +87,7 @@ public class TrendAdapter extends RecyclerView.Adapter<TrendAdapter.TrendRecycle
         public void onClick(View view) {
             int postion = getAdapterPosition();
             Toast.makeText(context, "postion"+postion, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(context , TrendDetail.class);
+            Intent intent = new Intent(context , BlogDetail.class);
             intent.putExtra("image" , arrayList.get(postion).getImgResource());
             intent.putExtra("title" , arrayList.get(postion).getTitulo());
             intent.putExtra("des" , arrayList.get(postion).getDescripcion());
