@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.frag.R;
 
-public class Tour_choosedate extends AppCompatActivity {
+public class Tour_choosedate2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tour_choosedate);
+        setContentView(R.layout.activity_tour_choosedate2);
     }
 }
