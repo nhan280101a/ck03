@@ -23,6 +23,8 @@ import com.example.frag.fragment.itemTab1.photo2;
 import com.example.frag.model.Tour;
 import com.google.android.material.tabs.TabLayout;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +48,8 @@ public class HomeFragment extends Fragment {
     private ArrayList<Tour> arrayList;
     private RecyclerView home1_viewpager1;
     private BestSaleAdapter adapter;
+
+
 
     public HomeFragment() {
         // Required empty public constructor

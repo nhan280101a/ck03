@@ -8,6 +8,7 @@ public class Tour {
     private String placeStart;
     private String about;
     private String price;
+    private String timeTable;
 
     public String getName() {
         return name;

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.frag.activity.Tour_choosedate;
 import com.example.frag.activity.Tour_findtour;
 import com.example.frag.R;
 import com.example.frag.model.Tour;
@@ -63,7 +64,7 @@ public class TourDetails extends AppCompatActivity {
         btnTimTour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TourDetails.this, Tour_findtour.class);
+                Intent intent = new Intent(TourDetails.this, Tour_choosedate.class);
                 intent.putExtra("name", name);
                 startActivity(intent);
             }
