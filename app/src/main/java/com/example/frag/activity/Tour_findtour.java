@@ -2,6 +2,7 @@ package com.example.frag.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,8 @@ import com.example.frag.R;
 public class Tour_findtour extends AppCompatActivity {
     private TextView tvTitle;
     private TextView tvTourName, people_amount, child_amount;
-    private Button btnChooseDate;
+    private  ImageButton btnDate;
+    private Button  btnFillInfo;
     private static int _counter_people = 0 ;
     private static int _counter_child = 0 ;
     private ImageButton people_minus, people_add, child_minus, child_add;
@@ -90,10 +92,18 @@ public class Tour_findtour extends AppCompatActivity {
             }
         });
 
-        btnChooseDate.setOnClickListener(new View.OnClickListener() {
+        btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+            }
+        });
+
+        btnFillInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Tour_findtour.this, Tour_fillinfo.class);
+                startActivity(intent);
             }
         });
     }
@@ -101,7 +111,8 @@ public class Tour_findtour extends AppCompatActivity {
     private void initViews() {
         tvTitle = findViewById(R.id.tvTitle);
         tvTourName = findViewById(R.id.tvTourName);
-        btnChooseDate = findViewById(R.id.btnChooseDate);
+        btnDate = findViewById(R.id.btnDate);
+        btnFillInfo = findViewById(R.id.btnFillInfo);
 
         people_minus = findViewById(R.id.people_minus);
         people_add = findViewById(R.id.people_add);

@@ -1,4 +1,4 @@
-package com.example.frag.fragment;
+package com.example.frag.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -10,8 +10,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+<<<<<<< HEAD:app/src/main/java/com/example/frag/fragment/TourDetails.java
 import com.example.frag.activity.Tour_choosedate;
 import com.example.frag.activity.Tour_findtour;
+=======
+>>>>>>> ddbc492e275de1af922c5ee69eef8efe8414a6be:app/src/main/java/com/example/frag/activity/TourDetails.java
 import com.example.frag.R;
 import com.example.frag.model.Tour;
 

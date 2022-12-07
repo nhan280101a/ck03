@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.frag.R;
-import com.example.frag.fragment.TourDetails;
+import com.example.frag.activity.TourDetails;
 import com.example.frag.model.Tour;
 
 import java.util.ArrayList;
