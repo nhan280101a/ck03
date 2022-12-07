@@ -1,6 +1,10 @@
 {
   "project_info": {
     "project_number": "842233040581",
+<<<<<<< HEAD
+=======
+    "firebase_url": "https://tour-c1a3f-default-rtdb.firebaseio.com",
+>>>>>>> bb1ef9ade51c3533b412a687bb7c9bbf95960b5d
     "project_id": "tour-c1a3f",
     "storage_bucket": "tour-c1a3f.appspot.com"
   },
