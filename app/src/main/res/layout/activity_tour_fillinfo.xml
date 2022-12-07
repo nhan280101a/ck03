@@ -51,13 +51,13 @@
 
         </LinearLayout>
         <Button
-            android:id="@+id/btnTimTour"
+            android:id="@+id/btnPay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
             android:backgroundTint="#4886F1"
             android:layout_marginRight="20dp"
-            android:text="Tim tour"/>
+            android:text="Thanh toan"/>
 
 
     </androidx.cardview.widget.CardView>

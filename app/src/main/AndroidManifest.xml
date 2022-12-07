@@ -65,7 +65,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".fragment.TourDetails"
+            android:name=".activity.TourDetails"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -32,7 +32,7 @@
         android:textSize="20sp"/>
 
     <TextView
-
+        android:id="@+id/btnHome"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:background="@drawable/btn_white"
